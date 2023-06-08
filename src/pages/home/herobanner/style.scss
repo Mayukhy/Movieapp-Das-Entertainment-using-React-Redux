@@ -1,0 +1,126 @@
+
+
+@mixin mobile{
+    @media screen and (max-width:500px) {
+      @content ; 
+    }
+}
+
+    @mixin tablet{
+        @media screen and (max-width:768px) {
+          @content ; 
+        }
+    }
+        @mixin laptop{
+            @media screen and (max-width:1000px) {
+              @content  ;
+            }
+        }
+
+.heroBanner{
+width: 100%;
+height: 700px;
+position: relative;
+@include laptop{
+    height: 450px;
+}
+.backdrop_img{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+    .lazy-load-image-background{
+    width: 100%;
+    height: 100%;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   
+    }
+    }
+}
+.opacity-layer{
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
+    @include laptop{
+        height: 200px;
+    };
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.heroBannerContent{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%,100px);
+    width: 600px;
+    @include laptop{
+    width: 500px;
+    }
+    @include laptop{
+        transform: translate(-50%,45px);
+    }
+    .title{
+        font-size: 70px;
+        color: rgba(204, 243, 243, 0.865);
+        margin-bottom: 10px;
+        @include laptop{
+            font-size: 40px;  
+        }
+    }
+    .subTitle{
+        font-size: 30px;
+        color: rgba(204, 243, 227, 0.699);
+        margin-bottom: 20px; 
+        @include laptop{
+            font-size: 20px;  
+        }
+    }
+    .searchInput{
+        width: 100%;
+        input{
+            width:calc(100% - 150px);
+            height: 50px;
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            border-radius: 30px 0px 0px 30px;
+            @include mobile{
+                width:calc(100% - 250px);  
+            }
+            @include laptop{
+                height: 40px; 
+                border-radius: 20px 0px 0px 20px;
+            }
+        }
+    }
+    button{
+        height: 50px;
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        color: rgb(219, 250, 246);
+        border-radius: 0px 30px 30px 0px;
+        background-color: rgba(248, 93, 225, 0.751);
+        transition: all 0.4s;
+        cursor: pointer;
+        @include laptop{
+            height: 40px; 
+            border-radius: 0px 20px 20px 0px;
+            padding: 10px 16px;
+        }
+    }
+    button:hover{
+        background-color: rgb(252, 131, 165);
+        color: rgb(46, 38, 38);
+    }
+}
+}

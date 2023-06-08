@@ -1,0 +1,31 @@
+@mixin md{
+  @media screen and (min-width:1000px) {
+    @content  ;
+  }
+}
+@mixin sm{
+  @media screen and (max-width:647px) {
+    @content  ;
+  }
+}
+.homemain{
+  @include sm{
+    width: 140vw;
+  }
+}
+.carouselSection{
+  position: relative;
+  margin-bottom: 30px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .carouselTitle{
+    color: rgb(175, 247, 223);
+    margin-left: 30px;
+    font-size: 25px;
+    font-weight: 700;
+    @include md{
+      font-size: 30px; 
+    }
+  }
+}

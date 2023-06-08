@@ -1,0 +1,94 @@
+@mixin md{
+    @media screen and (min-width:1000px) {
+      @content  ;
+    }
+}
+@mixin sm{
+    @media screen and (max-width:647px) {
+      @content  ;
+    }
+}
+
+
+.contentWraper{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    h4{
+        margin-left: 10px;
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 5px rgba(193, 127, 250, 0.459);
+        background: -webkit-linear-gradient(#dec730, #a649d2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include md{
+            margin-top: 30px;
+            font-size: 35px; 
+            margin-bottom: 20px;
+         }
+    }
+    @include md{
+       margin-top: 30px;
+       font-size: 35px; 
+    }
+    .vidos{
+        display: flex;
+        overflow-x: scroll;
+        .viditems{
+            margin: 20px 5px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            position: relative;
+            .vidtumbnails{
+
+            .lazy-load-image-background{
+            
+                img{
+                    z-index: 999999;
+                    background-color: #5ff8f8;
+                }
+            }
+        }
+            .playbtn{
+                
+                position: absolute;
+                transform: scale(1.3);
+                border-radius: 50%;
+                padding-top: 2px;
+                padding-left: 1.5px;
+                width: 27px;
+                height: 27px;
+                color: #04152d;
+                background: -webkit-linear-gradient(#a05df7, #5ff8f8);
+                transition: all 0.5s;
+                cursor: pointer;
+                top: 73%;
+                left: 10%;
+                @include md{
+                transform: scale(1.5);
+                top: 70%;
+                padding-bottom: 28px; 
+                padding-top: 0px;
+                height: 30px;
+                width: 30px;
+                padding-left: 3px;
+                // padding-top: -40px;
+                left: 10%;
+                }
+            }
+            .playbtn:hover{
+                color: #c0f6f6;
+                background: -webkit-linear-gradient(#0b647d, #901135);  
+                
+            }
+        }
+        .viditems:hover{
+            background: rgba(154, 237, 204, 0.904);
+            
+        }
+        
+    }
+}

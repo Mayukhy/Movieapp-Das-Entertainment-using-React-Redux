@@ -1,0 +1,59 @@
+
+@mixin md{
+    @media screen and (min-width:1000px) {
+      @content  ;
+    }
+}
+@mixin sm{
+    @media screen and (max-width:647px) {
+      @content  ;
+    }
+}
+.vidbackground{
+    background-color: rgba(0, 255, 255, 0.29);
+    backdrop-filter: blur(5px);  
+    z-index: 9999;
+}
+
+.defaultbg{
+    z-index: -1;
+}
+.vidsection{
+    position: absolute;
+    height: 275vh;
+    top:0;
+    width: auto;
+    overflow-x: hidden;
+    width: 100%;
+    @include md{
+        width: 100vw;
+        left: 0;
+        top: -120px;
+        height: 275vh;
+    }
+    @include sm{
+        height: 280vh;
+        width: 140vw;
+        left: 0;
+        top:-140px
+
+    }
+}
+.popupsection{
+    display: flex;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    @include md{
+    top: 50%;
+    left: 48%;
+    }
+}
+.popupvideo{
+    z-index: 999999999999;
+    opacity: 1;
+    
+}

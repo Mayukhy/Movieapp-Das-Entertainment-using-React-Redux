@@ -1,0 +1,283 @@
+
+@mixin md{
+    @media screen and (min-width:1000px) {
+      @content  ;
+    }
+}
+@mixin sm{
+    @media screen and (max-width:647px) {
+      @content  ;
+    }
+}
+
+.detailsBanner {
+    width: 100%;
+    background-color: var(--black);
+    padding-top: 100px;
+    margin-bottom: 50px;
+    @include md {
+        margin-bottom: 0;
+        padding-top: 120px;
+        min-height: 700px;
+    }
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+        overflow: hidden;
+        @include sm {
+            width: 140vw;
+        }
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(
+            180deg,
+            rgba(4, 21, 45, 0) 0%,
+            #04152d 79.17%
+        );
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+        .left {
+            flex-shrink: 0;
+            .posterImg {
+                padding: 0px 10px;
+                width: 100%;
+                display: block;
+                border-radius:20px;
+                @include md {
+                    max-width: 350px;
+                }
+            }
+        }
+        .right {
+            color: white;
+            .title {
+                margin-left: 20px;
+                font-size: 28px;
+                line-height: 40px;
+                @include md {
+                    font-size: 34px;
+                    line-height: 44px;
+                }
+            }
+            .subtitle{
+                margin-left: 20px;
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 15px;
+                font-style: italic;
+                opacity: 0.5;
+                @include md {
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+            }
+            .alldetail{
+                display: flex;
+            .reldate{
+                margin-left: 20px;
+                margin-bottom: 10px; 
+                .date{
+                    font-size: 20px;
+                    padding-right: 10px;
+                    color: rgba(107, 200, 246, 0.89);
+                }  
+            }
+        }
+        .details{
+            position: relative;
+            display: flex;
+            align-items: center;
+            z-index: 9999;
+                .imdb{
+                    padding: 0px 3px;
+                    width: 45px;
+                    height: 45px;
+                    margin-top: 10px;
+                    margin-left: 20px;
+                    background: linear-gradient(180deg, rgba(245,118,118,1) 0%, rgba(69,125,252,1) 100%);
+                    border-radius: 50%;
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                    @include md{
+                        margin-top: 20px;
+                        padding: 0px 4px;
+                        width: 55px;
+                        height: 55px;
+                        
+                    }
+                 }
+                 .reating{
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    font-size: 30px;
+                    padding-left: 10px;
+                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                    h4{
+                        background: -webkit-linear-gradient(#f75da2, #5ff8f8);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 30px;
+                        @include md{
+                            margin-top: 15px;
+                            font-size: 35px;
+                        }
+                    }
+                }
+            }
+        .playbtn{
+        
+            margin-top: -10px;
+            margin-left:40px;
+            transform: scale(2.5);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            color: #04152d;
+            background: -webkit-linear-gradient(#a05df7, #5ff8f8);
+            transition: all 0.5s;
+            cursor: pointer;
+            @include md{
+            transform: scale(2.5);  
+            margin-top: 0px;
+            margin-left:60px; 
+            }
+        }
+        .playbtn:hover{
+            color: #c0f6f6;
+            background: -webkit-linear-gradient(#0b647d, #901135);
+        }
+            .textbold{
+                margin-left: 20px;
+                color: rgba(228, 247, 160, 0.881);
+            }
+            .text{
+                margin-left: 10px;
+                font-size: 15px;
+                color: #b3fddace;
+            }
+            
+
+        }
+    }
+
+    .detailsBannerSkeleton {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+        .contentWrapper {
+            display: flex;
+            gap: 50px;
+        }
+        .left {
+            flex-shrink: 0;
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            aspect-ratio: 1/1.5;
+            @include md {
+                max-width: 350px;
+            }
+        }
+        .right {
+            width: 100%;
+            .row {
+                width: 100%;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 50px;
+                &:nth-child(2) {
+                    width: 75%;
+                    margin-bottom: 50px;
+                }
+                &:nth-child(5) {
+                    width: 50%;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+    .castdetail{
+        margin-top: 30px;
+
+        h2{
+            width: 94vw;
+            margin-left: 20px;
+            padding-top: 20px;
+            color: #ffe4a0df;
+            border-top: 1px solid rgba(255, 211, 90, 0.502);
+            @include sm{
+                width:132vw
+            }
+            @include md{
+                width: auto;
+            }
+        }
+        display: flex;
+        flex-direction: column;
+     .cast{
+        display: flex;
+        overflow-x: scroll;
+        @include md{
+        width: 70vw;
+        }
+     .castinfo{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        .poster{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .realname{
+            font-size: 14px;
+            text-align: center;
+            color: #c0f6f6;
+        }
+        .ch{
+            margin-top: 5px;
+            font-size: 12px;
+            text-align: center;
+            color: #c0f6d7b6;   
+        }
+     }   
+     }   
+    }
+}
