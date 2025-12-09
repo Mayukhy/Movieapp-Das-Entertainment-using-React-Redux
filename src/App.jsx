@@ -4,7 +4,7 @@ import { fetchFromApi } from "./utls/Api";
 import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfigaration, getGenres } from './store/homeSlice';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Header from './component/header';
+import Header from './component/Header';
 import Footer from './component/Footer';
 import Home from './pages/home/Home';
 import Explore  from "./pages/explore/Explore";
