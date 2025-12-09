@@ -17,3 +17,56 @@ https://dasentertainment.netlify.app/
 
 4
 ![TheMovieApp - Google Chrome 7_4_2023 4_10_38 PM](https://github.com/Mayukhy/Movieapp-Das-Entertainment-using-React-Redux/assets/107027766/a5709a43-0278-4126-93cb-d55b822fbb8d)
+
+---
+
+## Docker Setup
+
+Use the following Dockerfile commands to build and run the app in a container:
+
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# # Copy source code
+# COPY . .
+
+# Copy only necessary source files
+COPY src/ ./src/
+COPY public/ ./public/
+COPY index.html ./
+COPY vite.config.js ./
+COPY .env ./
+
+# # Copy .env file to make environment variables available during build
+# COPY .env .env
+
+# Build the application with environment variables
+RUN npm run build
+
+# Install a simple HTTP server to serve the built files
+RUN npm install -g serve
+
+# Expose port 5173
+EXPOSE 5173
+
+# Serve the built application with disabled clipboard
+CMD ["serve", "-s", "dist", "-l", "5173", "--no-clipboard"]
+```
+
+### Build and run
+
+```bash
+# Build the image
+docker build -t movieapp .
+
+# Run the container on port 5173
+docker run -p 5173:5173 movieapp
+```
